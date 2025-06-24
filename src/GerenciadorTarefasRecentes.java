@@ -1,7 +1,4 @@
-import java.util.ArrayDeque;
-import java.util.Collection;
-import java.util.Deque;
-import java.util.Scanner;
+import java.util.*;
 
 public class GerenciadorTarefasRecentes {
 
@@ -10,6 +7,7 @@ public class GerenciadorTarefasRecentes {
 
     public GerenciadorTarefasRecentes(int capacidadeMaxima) {
         this.capacidadeMaxima = capacidadeMaxima;
+        this.dequeDeTarefas = new ArrayDeque<>();
     }
 
     public void adicionarTarefa(String descricaoTarefa) {
@@ -27,14 +25,22 @@ public class GerenciadorTarefasRecentes {
     }
 
     public Collection<Tarefa> obterTarefaRecente() {
-        return null;
+        List<Tarefa> listaDequeDeTarefas = new ArrayList<>();
+
+        for (Tarefa c : dequeDeTarefas) {
+
+            listaDequeDeTarefas.add(c);
+
+        }
+        return listaDequeDeTarefas;
     }
 
     public void limparTarefa() {
-
+        dequeDeTarefas.clear();
+        System.out.println("Lista de tarefas limpa com sucesso!");
     }
 
     public int getQuantidadeTarefas() {
-        return 0;
+        return dequeDeTarefas.size();
     }
 }
